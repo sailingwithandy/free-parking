@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
       if @reservation.save
         redirect_to edit_user_path(current_user.id)
       else
-        render "/reservations/show"
+        @errors = @reservation.errors.full_messages
+        render "/listings/show"
       end
   end
 

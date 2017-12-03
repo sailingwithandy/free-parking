@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 $(window).scroll(function() {
     if ($(this).scrollTop() > 100) {// can be whatever, 0 refers to the top space you allow
         $('#arrow').hide();// Hide your element

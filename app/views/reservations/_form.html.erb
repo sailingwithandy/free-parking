@@ -1,11 +1,15 @@
 <%= form_for  @reservation, url: user_listing_reservations_path(current_user, @listing.id) do |f| %>
-      <%= f.label "Select your date and time" %><br>
+    <% if @errors.present? %>
+      <%= @errors %>
+    <% end %>
+      
+    <%= f.label "Select your date and time" %><br>
 
-      <%= f.label "Start Date" %><br>
-      <%= f.datetime_field :startdate %><br>
+    <%= f.label "Start Date" %><br>
+    <%= f.datetime_field :startdate %><br>
 
-      <%= f.label "End Date" %><br>
-      <%= f.datetime_field :enddate %><br>
+    <%= f.label "End Date" %><br>
+    <%= f.datetime_field :enddate %><br>
 
-      <%= f.submit "Park!"%>
+    <%= f.submit "Park!"%>
 <% end %>
