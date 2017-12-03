@@ -1,0 +1,40 @@
+
+
+
+<div class="table">
+    <table class="table table-hover" align="center" id="table">
+      <tr>
+        <th> Type </th>  
+        <th> Address </th>
+         <th> City </th>
+         <th> Price </th>
+         <th> Thumbnail </th>
+         <th> Park! </th>
+      </tr>
+      <% @listings.each do |x| %>
+      <div>
+          <tr>
+           <td> <%= x.title %> </td>
+           <td> <%= x.address %> </td>
+           <td> <%= x.city %> </td>
+           <td> $ <%= x.price %> </td>
+            <% if x.photos.any?  %>
+                <td> <%= image_tag x.photos[0].thumb.to_s, class:"img-responsive" %>  
+                <% end %> </td>            
+           <td> <%= link_to "Park!", user_listing_path(id: x.id), :class => "btn btn-primary"  %></td>
+
+          </tr>
+        </div>
+      <% end %>
+    </table>
+  </div>
+ </div>
+  </div>
+  <%= will_paginate @posts %>
+
+
+  <!-- #@user.avatar.thumb.to_s -->
+   
+   
+  </div>
+

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+
+
+<% provide(:title, "Edit user") %>
+<h1>Your profile</h1>
+<h5>You can update your profile by altering the following fields.</h5>
+
+    <%= form_for @user, :html => {:multipart => true} do |f| %>
+
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br>
+
+      <%= f.label :email %><br>
+      <%= f.email_field :email %><br>
+      <%= f.label :avatar %><br>
+     <img class="round" <%= image_tag @user.avatar.thumb.to_s %> </br>
+      <%= f.file_field :avatar %><br>
+
+      <%= f.submit "Update Profile"%>
+    <% end %>
+
+  </div>
+</div>
+
+<h1>Your Parking History</h1>
+   <% @parking_history = Reservation.where(user_id: current_user) %>
+  
+
+   <% @parking_history.each do |x| %>
+      <div>
+          <tr>
+           <td> <%= x.startdate %> </td>
+           <td> <%= x.enddate %> </td>
+           <% listing_history = Listing.where(id: x.listing_id) %>
+            <% listing_history.each do |y| %>
+            <td> <%= y.title %> </td>
+            <td> <%= y.address %> </td>
+            <td> <%= y.city %> </td>
+            <td> $<%= y.price %> </td>
+            <%= image_tag y.photos[0].thumb.to_s, class:"img-responsive" %> 
+
+            </tr>
+            <% end %>
+
+        </div>
+      <% end %>

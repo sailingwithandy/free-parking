@@ -1,0 +1,24 @@
+
+THIS IS MY UGLY FORM
+<%= form_for [current_user, @listing] do |f| %>
+      <%= f.label "Type of Parking Space e.g. driveway, street parking, parking lot" %><br>
+      <%= f.text_field :title %><br>
+
+      <%= f.label "Address" %><br>
+      <%= f.text_field :address %><br>
+
+      <%= f.label "City" %><br>
+      <%= f.text_field :city %><br>
+
+      <%= f.label "Price Per Hour" %><br>
+      <%= f.text_field :price %><br>
+
+      <%= f.label "Add Pics of Your Parking Space" %><br>
+      <%= f.file_field :photos, multiple: true %><br>
+
+      <%= f.submit "Submit"%>
+<% end %>
+
+
+
+   

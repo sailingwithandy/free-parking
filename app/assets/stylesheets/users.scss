@@ -1,0 +1,331 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome3 {
+  padding: 0;
+  margin: 0;
+  background: url("https://accesschicagorealty.s3.amazonaws.com/uploads/cms_image/asset/499/chicago_parking.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  z-index: 2;
+
+}
+
+.welcome2 {
+  padding: 0;
+  margin: 0;
+  background: url("https://www.myledlightingguide.com/images/installations/Parking%20garage.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  z-index: -2;
+}
+
+.welcome {
+  padding: 0;
+  margin: 0;
+  background: url("https://static.spokanecity.org/photos/2013/09/21/parking-meter/16x7/full/parking-meter.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
+  z-index: -2;
+ /* opacity: 0.8;*/
+}
+
+
+.navbar  {
+    color: blue;
+}
+
+.hero-header {
+  text-align: center;
+  height: 750px;
+  padding: 10%;
+  
+  color: white;
+
+}
+
+  .firstlax {
+    position: relative;
+    z-index: 3;
+    background-color: white;
+  }
+
+  .main-text {
+    letter-spacing: 6px; 
+     position:fixed; top:10%; right:45%; 
+    font-size: 90px;
+    z-index: 1;
+  }
+
+  .navtext {
+    color: white;
+    font-color: white;
+  }
+  .sub-text {
+    font-size: 50px;
+    font-family: 'Sacramento';
+    position:fixed; top:23%; right:50%; 
+    z-index: 1;
+  
+}
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+}
+
+.nav.navbar-nav li a {
+    color: white;
+}
+.container {
+  margin: 20px;
+  padding: 20px;
+  font-color: black;
+}
+
+/*----- Para -----*/
+
+.div-one {
+  min-height: 400px;
+  color: #000;
+  position: relative;
+  font-color: black;
+  z-index: 2;
+}
+
+.para-one {
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-color: black;
+  z-index: 2;
+  position: relative;
+}
+
+.para-two {
+  width: 50%;
+  padding: 10px;
+  float: left;
+  font-color: black;
+  z-index: 2;
+  position: relative;
+}
+ 
+/*----- Menu -----*/
+  .menu {
+    width:100%;
+    background:#ff5a5f;
+  }
+
+.menu ul {
+  display:inline-block;
+}
+ 
+.menu li {
+  margin:0px 50px 0px 0px;
+  float:left;
+  list-style:none;
+  font-size: small;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+ 
+.menu li:last-child {
+  margin-right:0px;
+}
+ 
+.menu a {
+  color:#000;
+  transition:color linear 0.15s;
+  text-decoration: none;
+}
+ 
+.menu a:hover, .menu .current-item a {
+  text-decoration:none;
+  color:#000;
+}
+.menu {
+  width:100%;
+  background:#ff5a5f;
+}
+ 
+.menu ul {
+  display:inline-block;
+}
+ 
+.menu li {
+  margin:0px 50px 0px 0px;
+  float:left;
+  list-style:none;
+  font-size:17px;
+}
+ 
+.menu li:last-child {
+  margin-right:0px;
+}
+ 
+.menu a {
+  color:#000;
+  transition:color linear 0.15s;
+  text-decoration: none;
+}
+ 
+.menu a:hover, .menu .current-item a {
+  text-decoration:none;
+  color:#000;
+}
+
+#footer {
+  clear: both;
+  position: relative;
+  z-index: 10;
+  height: 3em;
+  margin-top: -3em;
+  background-color: black;
+  color: 000;
+  padding: 10px;
+  margin: auto;
+  ul {
+    li {
+      float: left;
+      margin-right: 20px;
+      list-style: none;
+      display: inline;
+    }
+  }
+}
+
+
+/*----- Bouncing Arrow -----*/
+
+.downArrow{
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  z-index: 1;
+}
+.bounce {
+  -moz-animation: bounce 3s infinite;
+  -webkit-animation: bounce 3s infinite;
+  animation: bounce 3s infinite;
+}
+@-moz-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@-webkit-keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+  60% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Search Bar -----*/
+.searchbar {
+  padding-top: 5em;
+  position:fixed; 
+    z-index: 1;
+
+}
+
+
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+     
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
