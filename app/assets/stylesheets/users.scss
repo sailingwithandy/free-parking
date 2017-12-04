@@ -85,6 +85,13 @@
 .nav.navbar-nav li a {
     color: white;
 }
+
+#listingNav li a {
+    color: grey;
+}
+
+
+
 .container {
   margin: 20px;
   padding: 20px;
@@ -119,6 +126,73 @@
   position: relative;
 }
  
+#parkingShow2{
+  
+  margin-top: 4em;
+} 
+
+#carouselborder {
+
+ border-left: 2px solid;
+  border-color: grey;
+}
+
+#parkingShow{
+  border-right: 2px solid;
+  border-color: grey;
+ 
+} 
+
+#footerDiv{
+  margin-top: 50px;
+  text-align: center;
+   border-top: 1px solid;
+  border-color: #ff5a5f;
+
+}
+.footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    
+   
+  
+}
+
+/*----- listing/show button -----*/
+.btn-danger-outline {     
+  border: 2px solid;
+  background-color: transparent;
+  border-color: #ff5a5f;
+  color: #ff5a5f;
+
+}
+
+.listingIndex {
+  margin: 0 auto;
+
+} 
+
+#inner {
+  text-align: center;
+  margin: 0 auto;
+}
+.col-centered{
+      float: none;
+  margin-right: auto;
+  margin-left: auto;
+    
+}
+.btn-default-outline {     
+  border: 2px solid;
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+#showContainer {
+  background-color: white;
+}
 /*----- Menu -----*/
   .menu {
     width:100%;

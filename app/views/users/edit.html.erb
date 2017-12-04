@@ -1,48 +1,104 @@
+<nav class="navbar navbar-default ">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <% if signed_in? %>
+             <%= image_tag @user.avatar.thumb.to_s, :class => "round" %> 
+          <% else %>
+            <%= link_to "Sign in", sign_in_path, :class => "navbar" %>
+          <% end %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id="listingNav">
+        <li> <%= link_to "Home", root_path %> 
+        <li ><% if signed_in? %>
+            <%= link_to "Your Profile", edit_user_path(current_user.id) %> 
+            <% else %>
+            <%= link_to "Sign in", sign_in_path %>
+          <% end %></li>
+        <li><% if signed_in? %>
+        <%= link_to "Parking Spots", user_listings_path(current_user.id) %> 
+        <% end %></li>
+        <li><% if signed_in? %>
+        <%= link_to "List Your Spot", new_user_listing_path(current_user.id) %> 
+        <% end %></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right" id="listingNav">
+        <li > <% if signed_in? %>
+          <%= link_to "Sign Out", sign_out_path, method: :delete, :class => "btn btn-danger-outline", :style => "margin: 5px; padding 5px;" %>
+          <% end %></li>  
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-3" id="parkingShow">
 
 
 
 <% provide(:title, "Edit user") %>
-<h1>Your profile</h1>
-<h5>You can update your profile by altering the following fields.</h5>
-
+<h1 style="color: #008489;">Your profile</h1>
+<h5 style="color: grey;">You can update your profile by altering the following fields.</h5>
+<form>
+  <div class="form-group">
     <%= form_for @user, :html => {:multipart => true} do |f| %>
 
       <%= f.label :name %><br>
-      <%= f.text_field :name %><br>
+      <%= f.text_field :name, :class => "form-control" %><br>
 
       <%= f.label :email %><br>
-      <%= f.email_field :email %><br>
+      <%= f.email_field :email, :class => "form-control" %><br>
       <%= f.label :avatar %><br>
-     <img class="round" <%= image_tag @user.avatar.thumb.to_s %> </br>
-      <%= f.file_field :avatar %><br>
-
-      <%= f.submit "Update Profile"%>
+    <%= image_tag @user.avatar.thumb.to_s, :class => "round form" %> <br><br>
+      <%= f.file_field :avatar, :class => "form-control" %><br>
+</div>
+      <%= f.submit "Update Profile", :class => "btn btn-danger-outline btn-block"%>
     <% end %>
+    </form>
 
   </div>
-</div>
 
-<h1>Your Parking History</h1>
+
+
+
+<div class="row">
+  <div class="col-md-6 ">
+
+<h1 style="color: #008489;">Your Parking History</h1>
    <% @parking_history = Reservation.where(user_id: current_user) %>
   
-
+<div class="rows">
    <% @parking_history.each do |x| %>
-      <div>
-          <tr>
-           <td> <%= x.startdate %> </td>
-           <td> <%= x.enddate %> </td>
+           <div class="col-md-6 ">
+           
            <% listing_history = Listing.where(id: x.listing_id) %>
             <% listing_history.each do |y| %>
-            <td> <%= y.title %> </td>
-            <td> <%= y.address %> </td>
-            <td> <%= y.city %> </td>
-            <td> $<%= y.price %> </td>
+           <h5 style="color: grey;"><%= y.title %>, <%= y.address %>, <%= y.city %>, $<%= y.price %> </h5>
+             
+              
+           
+           <p style="color: grey;">Parked on: <%= x.startdate.strftime('%d %b %y') %> </p>
+       
+           <p style="color: grey;"> Hours: <%= x.total_price.hours / 36000 %> Total: $<%= x.total_price %> </p>
+          <% #byebug %>
             <%= image_tag y.photos[0].thumb.to_s, class:"img-responsive" %> 
-
-            </tr>
+            <%= link_to "Delete", user_reservation_path(user_id: current_user, id: x.id), method: :delete %> 
             <% end %>
 
         </div>
       <% end %>
+</div>
+</div>
+</div>
+</div>

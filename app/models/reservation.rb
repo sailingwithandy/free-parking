@@ -16,4 +16,13 @@ def overlap?(x,y)
   (x.startdate - x.enddate) * (y.startdate - y.enddate) > 0
 end
 
+def total_price
+  starttime = startdate
+  endtime = enddate
+  price = listing.price.to_i
+  hours = ((endtime - starttime) / 3600).to_i
+  return hours * price 
+end
+
+
 end

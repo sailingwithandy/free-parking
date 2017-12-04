@@ -1,10 +1,59 @@
-<h1> Park Here! </h1>
-  <h6><%= @listing.title %></h6> 
-  <h6><%= @listing.address %></h6>  
-  <h6><%= @listing.city %></h6>  
-  <h6>$<%= @listing.price %></h6> 
-  <%= render partial: "/reservations/form"%> 
+<nav class="navbar navbar-default ">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <% if signed_in? %>
+             <%= image_tag @user.avatar.thumb.to_s, :class => "round" %> 
+          <% else %>
+            <%= link_to "Sign in", sign_in_path, :class => "navbar" %>
+          <% end %>
+    </div>
 
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav" id="listingNav">
+        <li> <%= link_to "Home", root_path(current_user.id) %> 
+        <li ><% if signed_in? %>
+            <%= link_to "Your Profile", edit_user_path(current_user.id) %> 
+            <% else %>
+            <%= link_to "Sign in", sign_in_path %>
+          <% end %></li>
+        <li><% if signed_in? %>
+        <%= link_to "Parking Spots", user_listings_path(current_user.id) %> 
+        <% end %></li>
+        <li><% if signed_in? %>
+        <%= link_to "List Your Spot", new_user_listing_path(current_user.id) %> 
+        <% end %></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right" id="listingNav">
+        <li > <% if signed_in? %>
+          <%= link_to "Sign Out", sign_out_path, method: :delete, :class => "btn btn-danger-outline", :style => "margin: 5px; padding 5px;" %>
+          <% end %></li>  
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid" id="showContainer">
+  <div class="rows">
+    <div class="col-md-3" id="parkingShow2">
+      <h1 style="color: #008489;"> Park Here! </h1>
+        <h4>Parking type: <%= @listing.title %></h6> 
+        <h4>Address: <%= @listing.address %></h6>  
+        <h4>City: <%= @listing.city %></h6>  
+        <h4>Price per Hour: $<%= @listing.price %></h6> 
+        <%= render partial: "/reservations/form"%> 
+    </div>
+    <div class="col-md-9" id="carouselborder">
+      
+    
 
 
 <% if @listing.photos.any?  %>           
@@ -41,3 +90,8 @@
   </a>
 </div>
   <% end %> 
+
+  </div>
+   
+  </div>
+</div>

@@ -2,14 +2,17 @@
     <% if @errors.present? %>
       <%= @errors %>
     <% end %>
-      
-    <%= f.label "Select your date and time" %><br>
+    <form>
+      <div class="form-group">
+          <%= f.label "Select your date and time" %>
 
-    <%= f.label "Start Date" %><br>
-    <%= f.datetime_field :startdate %><br>
-
-    <%= f.label "End Date" %><br>
-    <%= f.datetime_field :enddate %><br>
-
-    <%= f.submit "Park!"%>
-<% end %>
+          <%= f.label "Start Date" %>
+          <%= f.datetime_field :startdate, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+          <%= f.label "End Date" %>
+          <%= f.datetime_field :enddate, :class => "form-control" %>
+      </div>
+          <%= f.submit "Park!", :class => "btn btn-danger-outline btn-block"%>
+      <% end %>
+    </form>
