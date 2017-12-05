@@ -1,7 +1,7 @@
 class Reservation < ActiveRecord::Base
 belongs_to :user
 belongs_to :listing
-validate :overlapping_time
+#validate :overlapping_time
 
 def overlapping_time
   listing.reservations.each do |old_reservation|
