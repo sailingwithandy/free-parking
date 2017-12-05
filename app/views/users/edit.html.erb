@@ -93,9 +93,10 @@
            <p style="color: grey;"> Hours: <%= x.total_price.hours / 36000 %> Total: $<%= x.total_price %> </p>
           <% #byebug %>
             <%= image_tag y.photos[0].thumb.to_s, class:"img-responsive" %> 
-            <%= link_to "Delete", user_reservation_path(user_id: current_user, id: x.id), method: :delete %> 
-            <% end %>
-
+              <% if (x.startdate - Time.now) > 0 %>
+               <%= link_to "Delete", user_reservation_path(user_id: current_user, id: x.id), method: :delete %> 
+              <% end %>
+          <% end %> 
         </div>
       <% end %>
 </div>
