@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
     @reservation.listing = @listing
     @user = current_user 
       if @reservation.save
+        Booking.test(@user).deliver
         redirect_to edit_user_path(current_user.id)
       else
         @errors = @reservation.errors.full_messages
