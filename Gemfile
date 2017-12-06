@@ -6,7 +6,9 @@ git_source(:github) do |repo_name|
 end
 
 gem 'geocoder'
+
 gem 'rails_12factor'
+
 gem 'sidekiq'
 gem 'braintree'
 gem 'fog'
