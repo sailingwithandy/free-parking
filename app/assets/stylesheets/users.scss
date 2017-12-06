@@ -155,8 +155,16 @@
     height: 50px;
     bottom: 0;
     
-   
-  
+}
+
+.mapdiv {
+  height: 100%;
+    margin: 0;
+  padding: 0;
+}
+
+#map {
+  height: 60vh;
 }
 
 /*----- listing/show button -----*/
