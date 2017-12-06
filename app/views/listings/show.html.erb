@@ -42,17 +42,23 @@
 </nav>
 
 <div class="container-fluid" id="showContainer">
-  <div class="rows">
-    <div class="col-md-3" id="parkingShow2">
-          <h1 style="color: #008489;"> Park Here! </h1>
-            <h4>Parking type: <%= @listing.title %></h6> 
-            <h4>Address: <%= @listing.address %></h6>  
-            <h4>City: <%= @listing.city %></h6>  
-            <h4>Price per Hour: $<%= @listing.price %></h6> 
-            <%= render partial: "/reservations/form"%> 
-        </div>
+  <div class="row">
+    <div class="col-md-7" id="parkingShow2">
+         <!-- <div class="affix"> -->
+          <h4>Parking type: <%= @listing.title %></h4> 
+            <h4>Address: <%= @listing.address %></h4>  
+            <h4>City: <%= @listing.city %></h4>  
+            <h4>Price per Hour: $<%= @listing.price %></h4> 
+          
+            <div  id="map" "></div>
+      </div>
+        
+        
 
-<div class="col-md-9" id="carouselborder">
+<div class="col-md-5" id="carouselborder">
+  <h1 style="color: #008489;"> Park Here! </h1>
+    <%= render partial: "/reservations/form"%> <br>
+
 <% if @listing.photos.any?  %>           
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -84,26 +90,12 @@
         </a>
       </div>
       <% end %> 
-    </div>
-    
+    </div>    
   </div>
+</div>   
 </div>
 
-
-
-<div class="row">
-    <div class="col-md-offset-2 col-md-8" id="map" > 
- 
-</div>
-
-  
-
-   
-</div>
-
-  <!-- <script src="script.js"></script> -->
-  <script async defer                                  
-          src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_key']%>&callback=initialize"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_key']%>&callback=initialize"></script>
 
 <script> 
             
@@ -146,9 +138,7 @@
       }
     });
   }
-
-
-  </script>
+</script>
 
 
 
