@@ -435,7 +435,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.5)
   jquery-rails
-  listen (>= 3.0.5, < 3.2)
+  listen
   mini_magick
   omniauth
   omniauth-facebook
