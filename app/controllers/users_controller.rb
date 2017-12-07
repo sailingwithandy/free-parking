@@ -14,7 +14,6 @@ class UsersController < Clearance::UsersController
   end
 
   def update
-
       @user = User.find(current_user.id)
       if @user.update_attributes(user_params) 
         flash[:success] = "You changed your user information!"

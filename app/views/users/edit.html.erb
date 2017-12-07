@@ -50,22 +50,24 @@
 <% provide(:title, "Edit user") %>
 <h1 style="color: #008489;">Your profile</h1>
 <h5 style="color: grey;">You can update your profile by altering the following fields.</h5>
-<form>
-  <div class="form-group">
-    <%= form_for @user, :html => {:multipart => true} do |f| %>
+
+  <!-- <div class="form-group"> -->
+    <%= form_for @user, url: user_path, :html => {:multipart => true} do |f| %>
 
       <%= f.label :name %><br>
       <%= f.text_field :name, :class => "form-control" %><br>
 
       <%= f.label :email %><br>
       <%= f.email_field :email, :class => "form-control" %><br>
+
       <%= f.label :avatar %><br>
-    <%= image_tag @user.avatar.thumb.to_s, :class => "round form" %> <br><br>
+      <%= image_tag @user.avatar.thumb.to_s, :class => "round form" %> <br><br>
+
       <%= f.file_field :avatar, :class => "form-control" %><br>
-</div>
+  <!-- </div> -->
       <%= f.submit "Update Profile", :class => "btn btn-danger-outline btn-block"%>
     <% end %>
-    </form>
+
 
   </div>
 

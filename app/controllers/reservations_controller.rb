@@ -25,3 +25,4 @@ class ReservationsController < ApplicationController
   end
 
 end
+
