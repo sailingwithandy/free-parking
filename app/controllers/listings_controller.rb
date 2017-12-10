@@ -22,7 +22,9 @@ class ListingsController < ApplicationController
   end
 
   def index 
-    @listings = Listing.paginate(:page => params[:page], per_page: 12 )
+    #@listing = Listing.where(["name LIKE ?", "%#{params [:search]}"])
+    @listings = Listing.search(params[:search]).paginate(:page => params[:page], per_page: 12 )
+   
     @user = current_user
   end
 
