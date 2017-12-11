@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
     @user = current_user 
       if @reservation.save
         ReservationJob.perform_now(@user)
-        redirect_to edit_user_path(current_user.id)
+        # render "/braintree/new"
+        redirect_to braintree_new_path(listing_id: @listing.id)
       else
         @errors = @reservation.errors.full_messages
         render "/listings/show"
@@ -21,7 +22,7 @@ class ReservationsController < ApplicationController
   end
   
   def reservation_params
-    params.require(:reservation).permit(:startdate, :enddate, )
+    params.require(:reservation).permit(:startdate, :enddate )
   end
 
 end

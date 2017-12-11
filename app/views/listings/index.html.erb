@@ -48,14 +48,16 @@
   <div class="rows " >  
     <% @listings.each do |x| %> 
       <div class="col-sm-3 ">
+
        
          <h5> <%= x.title %> </h5>
+         <% if x.photos.any?  %>
+            <%= image_tag x.photos[0].thumb.to_s, class:"img-responsive", :style => "width: 100%; height: 150px;" %>  
+            <% end %>
          <h5> <%= x.address %> </h5>
 
 
-        <% if x.photos.any?  %>
-            <%= image_tag x.photos[0].thumb.to_s, class:"img-responsive" %>  
-            <% end %>
+        
          <h5> <%= x.city %> $ <%= x.price %></h5>
          <h5>  </h5>
       

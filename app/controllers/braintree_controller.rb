@@ -1,6 +1,8 @@
 class BraintreeController < ApplicationController
+  # @user = current_user
 
   def new
+    @listing = Listing.find(params[:listing_id])
     @client_token = Braintree::ClientToken.generate
   end
 
@@ -21,5 +23,9 @@ class BraintreeController < ApplicationController
       redirect_to root_path, :flash => { :error => "Transaction failed. Please try again." }
     end
   end
+
+  # def braintree_params
+  #   params.require(:).permit(:)
+  # end
   
 end

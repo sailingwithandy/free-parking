@@ -20,8 +20,7 @@
       </button>
       <% if signed_in? %>
              <%= image_tag @user.avatar.thumb.to_s, :class => "round" %> 
-          <% else %>
-            <%= link_to "Sign in", sign_in_path, :class => "navbar" %>
+          
           <% end %>
     </div>
 
@@ -54,23 +53,22 @@
 <div class="hero-header">
   <h1 class="main-text">Free Parking</h1>
   <h2 class="sub-text">"Parking has never been so easy!"</h2>
-  <%= link_to "Make Payment", braintree_new_path %>
+  
 
+<% if signed_in? %>  <!-- enable search for user -->
  <div class="searchbar"> <!-- start of search bar -->
   <div class="rows">
     <div class="col-md-12">
       <div class="form-inline">
-            <div class="input-group" id="adv-search">
+        <div class="input-group" id="adv-search">
 
-              <%= form_tag user_listings_path(current_user),  :method => 'get', id: "search-form" do %>
-              <%= text_field_tag :search,  params[:search],  :placeholder => "Enter a City to Get Started!", :class =>"form-control", :style => "width: 300px;" %>
-              <span class="input-group-btn">
-              <%= submit_tag "Search", class: "btn btn-danger" %>
-              </span>
-            <% end %>
-
-
-
+                <%= form_tag user_listings_path(current_user),  :method => 'get', id: "search-form" do %>
+                <%= text_field_tag :search,  params[:search],  :placeholder => "Enter a City to Get Started!", :class =>"form-control", :style => "width: 300px;" %>
+                <span class="input-group-btn">
+                <%= submit_tag "Search", class: "btn btn-danger" %>
+                </span>
+               <% end %>
+ <% end %>
                 </div>
           </div>
         </div>
